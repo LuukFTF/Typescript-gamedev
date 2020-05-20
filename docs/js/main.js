@@ -17,5 +17,5 @@ var Game = (function () {
     return Game;
 }());
 window.addEventListener("load", function () { return new Game(); });
-console.log("hello ts");
+console.log("testetstestestest");
 //# sourceMappingURL=main.js.map
