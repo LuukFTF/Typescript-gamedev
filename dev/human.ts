@@ -1,56 +1,47 @@
-let randomState = Math.floor(Math.random() * Math.floor(2));
-
 class Woman{
-    name: string;
+    name : string = "woman"
+    nickname: string;
     defaultState: string;
 
-    constructor(name: string, defaultState: string){
-        this.name = name;
+    constructor(nickname: string, defaultState: string){
+        this.nickname = nickname;
         this.defaultState = defaultState;
-        console.log(this.name + " is geboren")
-        console.log(this.name + " is " + this.defaultState)
+
+        console.log(this.name + " created")
+
+        console.log(this.nickname + " is geboren")
+        console.log(this.nickname + " is " + this.defaultState)
     }
+    
 
     aandacht(){
-        console.log(this.name + " wil aandacht")
+        console.log(this.nickname + " wil aandacht")
     }
     fysiekeAandacht(){
-        console.log(this.name + " wil fysieke aandacht")
+        console.log(this.nickname + " wil fysieke aandacht")
     }
     fysiekeWinkAandacht(){
-        console.log(this.name + " wil fysieke ;) aandacht")
+        console.log(this.nickname + " wil fysieke ;) aandacht")
     }
 
 }
 
 class Man{
-    name: string;
+    name : string = "man"
+    nickname: string;
 
-    constructor(name: string){
-        this.name = name;
-        console.log(this.name + " is geboren")
+    constructor(nickname: string){
+        this.nickname = nickname;
+
+        console.log(this.name + " created")
+
+        console.log(this.nickname + " is geboren")
     }
 
     hungry(){
-        console.log(this.name + " wil koekjes")
+        console.log(this.nickname + " wil koekjes")
     }
     horny(){
-        console.log(this.name + " wil neuken")
+        console.log(this.nickname + " wil neuken")
     }
 }
-
-let teuntje = new Woman("Teuntje", "verveeld");
-let lucas = new Man("Lucas");
-
-
-teuntje.aandacht()
-teuntje.fysiekeAandacht()
-teuntje.fysiekeWinkAandacht()
-
-if(randomState == 0){
-    lucas.hungry()
-} else {
-    lucas.horny()
-}
-
-
