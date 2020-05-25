@@ -10,6 +10,6 @@
         "outFile": "docs/js/main.js"
     },
     "include": [
-        "dev/**/*"
+        "dev/**/*", "testing/human.ts", "testing/game.ts"
     ]
 }

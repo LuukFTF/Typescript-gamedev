@@ -1,28 +1,19 @@
-let randomState = Math.floor(Math.random() * Math.floor(2));
+/// <reference path="player.ts"/>
 
 class Game {
-    name : string = "Game"
+    private player : Player
 
-    constructor(){
+    constructor() {
+        this.player = new Player()
 
-    let teuntje = new Woman("Teuntje", "verveeld");
-    let lucas = new Man("Lucas");
-    
-    
-    teuntje.aandacht()
-    teuntje.fysiekeAandacht()
-    teuntje.fysiekeWinkAandacht()
-    
-    if(randomState == 0){
-        lucas.hungry()
-    } else {
-        lucas.horny()
+        this.gameLoop()
     }
-        
+    
+    private gameLoop(){
+        this.player.update()
 
-
-    console.log(this.name + " created")
+        requestAnimationFrame(()=>this.gameLoop())
     }
-}
+} 
 
 window.addEventListener("load", () => new Game())

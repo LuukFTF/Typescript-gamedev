@@ -6,3 +6,15 @@ body, html {
 * {
     box-sizing: border-box;
 }
+
+game * {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+}
+
+player {
+    background-image: url(../img/robot.png);
+    width:320px; height:320px;
+}
