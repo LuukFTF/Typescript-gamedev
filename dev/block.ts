@@ -34,7 +34,7 @@ class Block {
         this.downkey = 76
 
         this._X = 0
-        this._Y = 200
+        this._Y = -500
 
         window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyDown(e))
         window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyUp(e))

@@ -33,8 +33,6 @@ class Player {
     }
 
     private onKeyDown(e: KeyboardEvent): void {
-        console.log(e.keyCode)
-
         switch (e.keyCode) {
             case this.leftKey:
                 this.leftSpeed = this.speed

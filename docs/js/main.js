@@ -15,7 +15,7 @@ var Block = (function () {
         this.upkey = 80;
         this.downkey = 76;
         this._X = 0;
-        this._Y = 200;
+        this._Y = -500;
         window.addEventListener("keydown", function (e) { return _this.onKeyDown(e); });
         window.addEventListener("keyup", function (e) { return _this.onKeyUp(e); });
     }
@@ -84,7 +84,6 @@ var Player = (function () {
         return this.element.getBoundingClientRect();
     };
     Player.prototype.onKeyDown = function (e) {
-        console.log(e.keyCode);
         switch (e.keyCode) {
             case this.leftKey:
                 this.leftSpeed = this.speed;
@@ -114,16 +113,38 @@ var Player = (function () {
 }());
 var Game = (function () {
     function Game() {
+        this.score = 0;
         this.globalSpeed = 1;
         this.player = new Player();
         this.block = new Block(this);
         this.gameLoop();
     }
+    Game.prototype.checkCollision = function (a, b) {
+        return (a.left <= b.right &&
+            b.left <= a.right &&
+            a.top <= b.bottom &&
+            b.top <= a.bottom);
+    };
     Game.prototype.gameLoop = function () {
         var _this = this;
         this.player.update();
         this.block.update();
+        this.checkBlockPlayerCollision(this.player);
         requestAnimationFrame(function () { return _this.gameLoop(); });
+    };
+    Game.prototype.checkBlockPlayerCollision = function (player) {
+        var hit = this.checkCollision(player.getRectangle(), this.block.getRectangle());
+        if (hit) {
+            this.updateScore(-1);
+            this.gameOver();
+        }
+    };
+    Game.prototype.updateScore = function (addScoreAmount) {
+        this.score += addScoreAmount;
+    };
+    Game.prototype.gameOver = function () {
+        console.log("YOU HAVE DIED");
+        document.getElementsByTagName("message")[0].innerHTML = "YOU HAVE DIED";
     };
     return Game;
 }());
