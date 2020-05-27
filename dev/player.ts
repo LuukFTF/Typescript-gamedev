@@ -10,17 +10,19 @@ class Player {
     private rightSpeed : number = 0
     private leftSpeed : number = 0
 
+    private speed : number = 10
+
     constructor() {
         this.element = document.createElement("player")
 
         let game = document.getElementsByTagName("game")[0]
         game.appendChild(this.element)
 
-        this.rightKey   = 87
-        this.leftKey = 83
+        this.rightKey = 68
+        this.leftKey = 65
 
         this.posX = 0
-        this.posY = 200
+        this.posY = 700
 
         window.addEventListener("keydown", (e: KeyboardEvent) => this.onKeyDown(e))
         window.addEventListener("keyup", (e: KeyboardEvent) => this.onKeyUp(e))
@@ -31,15 +33,14 @@ class Player {
     }
 
     private onKeyDown(e: KeyboardEvent): void {
-        // Hiermee kan je checken welke keycode achter een bepaalde toets zit. 
         console.log(e.keyCode)
 
         switch (e.keyCode) {
             case this.leftKey:
-                this.leftSpeed = 5
+                this.leftSpeed = this.speed
                 break
             case this.rightKey:
-                this.rightSpeed = 5
+                this.rightSpeed = this.speed
                 break
         }
     }
@@ -61,6 +62,6 @@ class Player {
         // check of de paddle binnen beeld blijft
         if (newPosX > 0 && newPosX + 100 < window.innerWidth) this.posX = newPosX
 
-        this.element.style.transform = `translate(${this.posX}px, ${this.posY}px)`
+        this.element.style.transform = `translate(${this.posX}px, ${this.posY}px) scale(0.3)`
     }
 }

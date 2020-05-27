@@ -5,6 +5,7 @@ body, html {
 
 * {
     box-sizing: border-box;
+    background-color: black;
 }
 
 game * {
@@ -15,6 +16,12 @@ game * {
 }
 
 player {
-    background-image: url(../img/robot.png);
-    width:320px; height:320px;
+    background-image: url(../img/terminal_enemy1_player.png);
+    width:257px; height:338px;
+    transform: scale(0.1)
+}
+
+block {
+    background-image: url(../img/block1.png);
+    width:382px; height:1080px;
 }
